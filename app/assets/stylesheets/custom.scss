@@ -317,6 +317,11 @@ form {
   }
 }
 
+.disable {
+  pointer-events: none;
+  opacity: 0.50;
+}
+
 @media only screen and (min-width: 480px) {
   form {
     width: 60%;
