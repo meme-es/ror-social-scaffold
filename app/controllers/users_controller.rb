@@ -14,6 +14,6 @@ class UsersController < ApplicationController
 
     @pendings = current_user.pending_friends
     @requests = current_user.friend_requests
-    @friends = current_user.friends    
+    @friends = current_user.friends
   end
 end

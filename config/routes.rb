@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :friendships, only: %i[create update]
   get 'confirm', to: 'friendships#confirm', as: 'confirm_friendship'
+  get 'reject', to: 'friendships#reject', as: 'reject_friendship'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

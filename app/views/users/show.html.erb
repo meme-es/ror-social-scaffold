@@ -1,16 +1,13 @@
 <section class="user-section">
   <h2><%= "Name: #{@user.name}" %></h2>
-
   <span class="profile-link">
     <% disabled_c = (@pendings.include?(@user) || @friends.include?(@user) || current_user == @user) ? 'profile-link disable' : 'profile-link' %>
     <%= link_to 'Invite to friendship',  friendships_path(friend_id: @user.id), method: :post, class: disabled_c %>
-
     <% if @requests.include?(@user) %>
-      |
-      <%= link_to 'Accetp Invitation',  confirm_friendship_path(friend_id: @user.id), method: :get, class: 'profile-link' %>
+      |<%= link_to 'Accept Invitation',  confirm_friendship_path(friend_id: @user.id), method: :get, class: 'profile-link' %>|
+      <%= link_to 'Reject Invitation',  reject_friendship_path(friend_id: @user.id), method: :get, class: 'profile-link' %>
     <% end %>
   </span>
-
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
