@@ -5,9 +5,12 @@
         Name: <%= user.name %>
         <span class="profile-link">
           <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-          <% disabled_c = (@pendings.include?(user) || @friends.include?(user) || current_user == user) ? 'profile-link disable' : 'profile-link' %>
-          |
-          <%= link_to 'Invite to friendship',  friendships_path(friend_id: user.id), method: :post, class: disabled_c %>
+
+          <% unless current_user == user %>
+            <% disabled_c = (@pendings.include?(user) || @friends.include?(user))  ? 'profile-link disable' : 'profile-link' %>
+            | <%= link_to 'Invite to friendship',  friendships_path(friend_id: user.id), method: :post, class: disabled_c %>
+          <% end %>
+
           <% if @requests.include?(user) %>
             |
             <%= link_to 'Accept Invitation',  confirm_friendship_path(friend_id: user.id), method: :get, class: 'profile-link' %>
