@@ -299,9 +299,16 @@ form {
   }
 
   .profile-link {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     font-size: 0.8em;
     margin: 0 0 8px 0;
     color: $primary-color-dark;
+
+    .friendship-action-buttons {
+      display: flex;
+    }
   }
 }
 
